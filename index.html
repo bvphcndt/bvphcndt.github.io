@@ -17,9 +17,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-blue-50 dark:bg-gray-900 text-gray-900 dark:text-white">
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
 
-    <div class="container mx-auto px-4 py-16 md:py-20 min-h-screen flex flex-col items-center">
+    <div class="relative container mx-auto px-4 py-16 md:py-20 min-h-screen flex flex-col items-center">
+
+        <!-- Nút Dark Mode Toggle -->
+        <div class="absolute top-4 right-4 md:top-6 md:right-6">
+            <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                <!-- Icon Moon (hiện ở light mode, để chuyển sang dark) -->
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 dark:hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <!-- Icon Sun (hiện ở dark mode, để chuyển sang light) -->
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 5.05A1 1 0 003.636 6.464l.707.707a1 1 0 001.414-1.414l-.707-.707zM3 11a1 1 0 100-2H2a1 1 0 100 2h1zM6.464 16.364l-.707.707a1 1 0 001.414 1.414l.707-.707a1 1 0 00-1.414-1.414z"></path></svg>
+            </button>
+        </div>
 
         <!-- Tiêu đề chính -->
         <header class="text-center mb-12">
@@ -40,11 +50,11 @@
                 <!-- Thay thế src bằng logo của bạn -->
                 <img src="logobvremovebr.jpg" 
                      alt="Logo Đối tác 1" 
-                     class="h-10 md:h-12 w-auto opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                     class="h-10 md:h-12 w-auto transition-all duration-300">
                 <!-- Thay thế src bằng logo của bạn -->
                 <img src="https://placehold.co/160x80/e2e8f0/94a3b8?text=Logo+%C4%90%E1%BB%91i+t%C3%A1c+2" 
                      alt="Logo Đối tác 2" 
-                     class="h-10 md:h-12 w-auto opacity-70 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                     class="h-10 md:h-12 w-auto transition-all duration-300">
             </div>
         </section>
 
@@ -136,6 +146,43 @@
             </p>
         </footer>
     </div>
+
+    <!-- Script cho Dark Mode Toggle -->
+    <script>
+        // Lấy nút toggle, <html> element
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Hàm để áp dụng theme (thêm/xóa class 'dark' và lưu vào localStorage)
+        function applyTheme(isDark) {
+            if (isDark) {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            }
+        }
+
+        // 1. Kiểm tra theme đã lưu trong localStorage hoặc cài đặt hệ thống khi tải trang
+        const savedTheme = localStorage.getItem('color-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Ưu tiên localStorage, sau đó đến cài đặt hệ thống
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            applyTheme(true);
+        } else {
+            // Mặc định là light
+            applyTheme(false);
+        }
+
+        // 2. Thêm sự kiện click cho nút
+        themeToggleBtn.addEventListener('click', () => {
+            // Toggle theme dựa trên trạng thái hiện tại
+            const isCurrentlyDark = htmlElement.classList.contains('dark');
+            applyTheme(!isCurrentlyDark);
+        });
+    </script>
 
 </body>
 </html>
