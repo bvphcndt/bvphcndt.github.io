@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triển khai phần mềm VNPT HMIS</title>
+    <!-- Tải Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Sử dụng font Inter cho toàn trang */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <!-- Tải font Inter từ Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
+
+    <div class="container mx-auto px-4 py-12 min-h-screen flex flex-col items-center justify-center">
+
+        <!-- Tiêu đề chính -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-blue-700 dark:text-blue-400">
+                Triển khai phần mềm quản lý khám chữa bệnh VNPT
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-300 mt-2">
+                Cổng thông tin hỗ trợ
+            </p>
+        </header>
+
+        <!-- Phần thân với 4 mục chính -->
+        <main class="w-full max-w-4xl">
+            <!-- 
+              Sử dụng grid layout:
+              - 1 cột trên màn hình nhỏ (mobile)
+              - 2 cột trên màn hình vừa (tablet) trở lên
+            -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Mục 1: Link đăng nhập -->
+                <a href="#" 
+                   class="block p-8 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                    <h2 class="text-2xl font-semibold text-blue-600 dark:text-blue-400 mb-2">
+                        1. Link đăng nhập phần mềm
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Truy cập hệ thống quản lý khám chữa bệnh.
+                    </p>
+                </a>
+
+                <!-- Mục 2: Vướng mắc, khó khăn -->
+                <a href="#" 
+                   class="block p-8 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                    <h2 class="text-2xl font-semibold text-red-600 dark:text-red-400 mb-2">
+                        2. Vướng mắc, khó khăn
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Tổng hợp các vấn đề thường gặp và cách giải quyết.
+                    </p>
+                </a>
+
+                <!-- Mục 3: Hướng dẫn thao tác -->
+                <a href="#" 
+                   class="block p-8 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                    <h2 class="text-2xl font-semibold text-green-600 dark:text-green-400 mb-2">
+                        3. Hướng dẫn thao tác
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Tài liệu và video hướng dẫn sử dụng các chức năng.
+                    </p>
+                </a>
+
+                <!-- Mục 4: Khác -->
+                <a href="#" 
+                   class="block p-8 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                    <h2 class="text-2xl font-semibold text-gray-600 dark:text-gray-400 mb-2">
+                        4. Khác
+                    </h2>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        Các thông tin, tài liệu và liên kết liên quan khác.
+                    </p>
+                </a>
+
+            </div>
+        </main>
+
+        <!-- Chân trang -->
+        <footer class="text-center text-gray-500 dark:text-gray-400 mt-12">
+            <p>&copy; 2025 VNPT. Hỗ trợ triển khai phần mềm.</p>
+            <p class="text-sm mt-1">
+                Để thay đổi liên kết, vui lòng chỉnh sửa tệp <code class="bg-gray-200 dark:bg-gray-700 px-1 rounded">index.html</code> và thay thế <code class="bg-gray-200 dark:bg-gray-700 px-1 rounded">href="#"</code>.
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
